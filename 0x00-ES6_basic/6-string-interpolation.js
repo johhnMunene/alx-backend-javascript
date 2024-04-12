@@ -1,4 +1,4 @@
-export default function getSanFranciscoDescription() {
+const getSanFranciscoDescription = () => {
   const year = 2017;
   const budget = {
     income: '$119,868',
@@ -9,3 +9,16 @@ export default function getSanFranciscoDescription() {
     with a per capita personal income of ${budget.income}. As of ${year}, San Francisco 
     proper had a GDP of ${budget.gdp}, and a GDP per capita of ${budget.capita}`;
 }
+
+export default getSanFranciscoDescription;
+
+
+
+
+
+
+
+
+
+
+
