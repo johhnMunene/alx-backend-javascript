@@ -1,19 +1,31 @@
 export default function createIteratorObject(report) {
-  const all = Object.values(report.allEmployees).reduce((a, b) => {
-    a.push(...b);
-    return a;
-  }, []);
-  let currIndex = 0;
-  const maxIndex = all.length;
-  return {
-    next() {
-      if (currIndex < maxIndex) {
-        const result = { value: all[currIndex], done: false };
-        currIndex += 1;
-        return result;
-      }
-      return { value: null, done: true };
-    },
-    [Symbol.iterator]: () => this.next(),
-  };
+	let departments = Object.values(report);
+
+	let currentDepartmentIndex = 0;
+	let currentEmployeeIndex = 0;
+
+	return {
+	  [Symbol.iterator]() {
+		return this;
+	  },
+	  next() {
+		if (currentDepartmentIndex >= departments.length) {
+		  return { done: true };
+		}
+
+		const department = departments[currentDepartmentIndex];
+		const employees = Object.values(department);
+
+		if (currentEmployeeIndex >= employees.length) {
+		  currentDepartmentIndex++;
+		  currentEmployeeIndex = 0;
+		  return this.next();
+		}
+
+		const employee = employees[currentEmployeeIndex];
+		currentEmployeeIndex++;
+
+		return { value: employee, done: false };
+	  },
+	};
 }
