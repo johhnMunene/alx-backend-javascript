@@ -8,4 +8,3 @@ const queryAPI = (endpoint) => {
 };
 
 export { weakMap, queryAPI };
-
