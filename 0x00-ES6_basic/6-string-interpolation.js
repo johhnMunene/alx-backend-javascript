@@ -7,7 +7,7 @@ const getSanFranciscoDescription = () => {
   };
   return `As of ${year}, it was the seventh-highest income county in the United States, 
     with a per capita personal income of ${budget.income}. As of ${year}, San Francisco 
-    proper had a GDP of ${budget.gdp}, and a GDP per capita of ${budget.capita}`;
+    proper had a GDP of ${budget.gdp}, and a GDP per capita of ${budget.capita}cd `;
 };
 
 export default getSanFranciscoDescription;
